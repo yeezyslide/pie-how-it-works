@@ -20,7 +20,6 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -102,78 +101,19 @@ body {
   flex-shrink: 0;
 }
 
-/* ── Placeholder Images ── */
-.placeholder-img {
+/* ── Step Images ── */
+.step-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.step-img-wrap {
   border-radius: var(--radius-card);
   overflow: hidden;
-  position: relative;
   background: var(--gray-card);
 }
-
-.placeholder-img::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(135deg, rgba(236,0,78,0.04) 0%, transparent 50%),
-    linear-gradient(225deg, rgba(22,39,78,0.06) 0%, transparent 50%);
-}
-
-.placeholder-img::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(236,0,78,0.06) 0%, transparent 40%),
-    radial-gradient(circle at 70% 60%, rgba(22,39,78,0.05) 0%, transparent 40%);
-}
-
-.placeholder-inner {
-  position: absolute;
-  inset: 0;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(rgba(22,39,78,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22,39,78,0.03) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.placeholder-mockup {
-  position: absolute;
-  inset: 24px;
-  border-radius: 16px;
-  background: var(--white);
-  opacity: 0.45;
-  box-shadow: 0 2px 20px rgba(22,39,78,0.05);
-}
-
-.placeholder-mockup-bar {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
-  height: 8px;
-  border-radius: 4px;
-  background: var(--gray-card);
-}
-
-.placeholder-mockup-lines {
-  position: absolute;
-  top: 40px;
-  left: 16px;
-  right: 40%;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.placeholder-mockup-lines span {
-  height: 5px;
-  border-radius: 3px;
-  background: var(--gray-card);
-}
-
-.placeholder-mockup-lines span:last-child { width: 60%; }
 
 /* ── Fade-in Animation ── */
 .fade-up {
@@ -192,7 +132,7 @@ body {
 .fade-up.delay-3 { transition-delay: 0.3s; }
 
 /* ══════════════════════════════════════════
-   CONCEPT B — Sticky Showcase (Desktop)
+   DESKTOP — Sticky Showcase
    ══════════════════════════════════════════ */
 
 .how-it-works {
@@ -222,7 +162,6 @@ body {
 .concept-b-tabs {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .concept-b-tab {
@@ -257,9 +196,7 @@ body {
   margin-bottom: 4px;
 }
 
-.concept-b-tab .step-number {
-  transition: all 0.3s ease;
-}
+.concept-b-tab .step-number { transition: all 0.3s ease; }
 
 .concept-b-tab.active .step-number {
   background: var(--pink);
@@ -274,13 +211,9 @@ body {
   transition: color 0.3s ease;
 }
 
-.concept-b-tab:not(.active) .concept-b-tab-title {
-  color: var(--gray-text);
-}
+.concept-b-tab:not(.active) .concept-b-tab-title { color: var(--gray-text); }
 
-.concept-b-tab-eyebrow {
-  margin-bottom: 10px;
-}
+.concept-b-tab-eyebrow { margin-bottom: 10px; }
 
 .concept-b-tab-body {
   font-size: 16px;
@@ -307,31 +240,22 @@ body {
   padding-bottom: 80px;
 }
 
-.concept-b-image-block {
-  position: relative;
-}
-
-.concept-b-image-block .placeholder-img {
+.concept-b-image-block .step-img-wrap {
   width: 100%;
-  height: 420px;
+  aspect-ratio: 4 / 5;
   transition: all 0.4s ease;
 }
 
-.concept-b-image-block .placeholder-img.dimmed {
+.concept-b-image-block .step-img-wrap.dimmed {
   opacity: 0.4;
   filter: grayscale(0.5);
 }
 
 /* ══════════════════════════════════════════
-   MOBILE CARD STACK — hidden on desktop,
-   shown on mobile instead of the grid
+   MOBILE SCROLL EXPERIENCE — hidden desktop
    ══════════════════════════════════════════ */
 
-.mobile-header {
-  display: none;
-}
-
-.mobile-steps {
+.m-scroll-section {
   display: none;
 }
 
@@ -340,126 +264,263 @@ body {
    ══════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
-  .how-it-works {
-    padding: 80px 32px 64px;
-  }
+  .how-it-works { padding: 80px 32px 64px; }
 
   .concept-b-wrapper {
     grid-template-columns: 340px 1fr;
     gap: 40px;
   }
 
-  .concept-b-sticky {
-    gap: 32px;
-  }
+  .concept-b-sticky { gap: 32px; }
 
   .section-header-title {
     font-size: 36px;
     letter-spacing: -1px;
   }
 
-  .concept-b-tab-title {
-    font-size: 20px;
-  }
+  .concept-b-tab-title { font-size: 20px; }
 
-  .concept-b-image-block .placeholder-img {
-    height: 360px;
+  .concept-b-image-block .step-img-wrap {
+    aspect-ratio: 4 / 5;
   }
 }
 
 /* ══════════════════════════════════════════
    MOBILE — below 768px
+   Scroll-driven: sticky image + progress bar
    ══════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-  .how-it-works {
-    padding: 64px 20px 56px;
-  }
+  .how-it-works { padding: 0; }
+  .concept-b-wrapper { display: none; }
 
-  /* Hide desktop layout */
-  .concept-b-wrapper {
-    display: none;
-  }
-
-  /* Show mobile layout */
-  .mobile-header {
+  .m-scroll-section {
     display: block;
-    max-width: 600px;
-    margin: 0 auto 40px;
+    position: relative;
   }
 
-  .mobile-header .section-header-title {
-    font-size: 32px;
+  /* ── Progress bar at very top ── */
+  .m-progress {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    height: 3px;
+    background: var(--gray-card);
+  }
+
+  .m-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--pink);
+    transition: width 0.3s ease;
+  }
+
+  /* ── Step indicators (sticky under progress bar) ── */
+  .m-step-indicators {
+    position: sticky;
+    top: 3px;
+    z-index: 15;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(22,39,78,0.06);
+  }
+
+  .m-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-text);
+    letter-spacing: -0.2px;
+    transition: color 0.3s ease;
+  }
+
+  .m-indicator.active { color: var(--navy); }
+
+  .m-indicator-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: rgba(22,39,78,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    transition: all 0.3s ease;
+  }
+
+  .m-indicator.active .m-indicator-num {
+    background: var(--pink);
+    color: var(--white);
+  }
+
+  .m-indicator.completed .m-indicator-num {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .m-indicator-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-card);
+  }
+
+  /* ── Header block ── */
+  .m-header {
+    padding: 48px 20px 32px;
+  }
+
+  .m-header .eyebrow { margin-bottom: 14px; }
+
+  .m-header .section-header-title {
+    font-size: 30px;
     letter-spacing: -0.8px;
-    margin-bottom: 16px;
+    margin-bottom: 0;
   }
 
-  .mobile-header .eyebrow {
+  /* ── Sticky image container ── */
+  .m-sticky-image {
+    position: sticky;
+    top: 52px;
+    z-index: 5;
+    padding: 0 20px;
+    background: var(--white);
+  }
+
+  .m-image-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--gray-card);
+    aspect-ratio: 3 / 4;
+  }
+
+  .m-image-frame .step-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .m-image-frame .step-img.active {
+    opacity: 1;
+  }
+
+  /* Step badge on image */
+  .m-image-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 3;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 14px 6px 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: -0.2px;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 12px rgba(22,39,78,0.08);
+  }
+
+  .m-image-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--pink);
+  }
+
+  /* ── Scroll content panels ── */
+  .m-content-panels {
+    position: relative;
+    z-index: 10;
+  }
+
+  .m-panel {
+    padding: 20px;
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .m-panel:last-child {
+    min-height: 45vh;
+  }
+
+  .m-panel-inner {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 0 -8px 40px rgba(22,39,78,0.06), 0 2px 8px rgba(22,39,78,0.03);
+    width: 100%;
+    border: 1px solid rgba(22,39,78,0.04);
+  }
+
+  .m-panel-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 14px;
   }
 
-  .mobile-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .mobile-step-card {
-    background: var(--gray-bg);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-  }
-
-  .mobile-step-card .placeholder-img {
-    width: 100%;
-    height: 220px;
-    border-radius: 0;
-  }
-
-  .mobile-step-content {
-    padding: 24px 24px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .mobile-step-top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .mobile-step-top .eyebrow {
+  .m-panel-top .step-number {
+    width: 28px;
+    height: 28px;
     font-size: 13px;
+    border-radius: 7px;
+    background: var(--pink);
+    color: var(--white);
   }
 
-  .mobile-step-title {
-    font-size: 22px;
+  .m-panel-top .eyebrow { font-size: 13px; }
+
+  .m-panel-title {
+    font-size: 24px;
     font-weight: 500;
     color: var(--navy);
-    letter-spacing: -0.66px;
-    line-height: 1.25;
+    letter-spacing: -0.72px;
+    line-height: 1.2;
+    margin-bottom: 10px;
   }
 
-  .mobile-step-body {
+  .m-panel-body {
     font-size: 15px;
     color: var(--gray-text);
     letter-spacing: -0.15px;
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
-  .mobile-cta {
-    margin-top: 8px;
-    text-align: center;
+  /* ── Bottom CTA ── */
+  .m-cta {
+    padding: 12px 20px 48px;
+    position: relative;
+    z-index: 10;
+    background: var(--white);
   }
 
-  .mobile-cta .cta-btn {
+  .m-cta .cta-btn {
     width: 100%;
-    padding: 14px 24px;
+    padding: 16px 24px;
     font-size: 16px;
-    border-radius: 12px;
+    border-radius: 14px;
   }
 }
 
@@ -468,125 +529,30 @@ body {
    ══════════════════════════════════════════ */
 
 @media (max-width: 400px) {
-  .how-it-works {
-    padding: 56px 16px 48px;
-  }
+  .m-header { padding: 40px 16px 28px; }
 
-  .mobile-header .section-header-title {
-    font-size: 28px;
+  .m-header .section-header-title {
+    font-size: 26px;
     letter-spacing: -0.7px;
   }
 
-  .mobile-step-card .placeholder-img {
-    height: 190px;
-  }
+  .m-sticky-image { padding: 0 16px; }
+  .m-image-frame { aspect-ratio: 3 / 4; }
 
-  .mobile-step-content {
-    padding: 20px 20px 24px;
-  }
-
-  .mobile-step-title {
-    font-size: 20px;
-  }
-
-  .mobile-step-body {
-    font-size: 14px;
-  }
+  .m-panel { padding: 16px; }
+  .m-panel-inner { padding: 24px 20px; }
+  .m-panel-title { font-size: 21px; }
+  .m-panel-body { font-size: 14px; }
+  .m-cta { padding: 12px 16px 40px; }
 }
 </style>
 </head>
 <body>
 
 <!-- ═══════════════════════════════════════════
-     How It Works — Sticky Showcase
+     How It Works
      ═══════════════════════════════════════════ -->
 <section class="how-it-works">
-
-  <!-- ── Mobile Header (hidden on desktop) ── -->
-  <div class="mobile-header">
-    <div class="eyebrow fade-up">
-      <span class="eyebrow-dot"></span>
-      How It Works
-    </div>
-    <h2 class="section-header-title fade-up delay-1">How Pie gets your business in front of AI</h2>
-  </div>
-
-  <!-- ── Mobile Step Cards (hidden on desktop) ── -->
-  <div class="mobile-steps">
-    <!-- Step 1 -->
-    <div class="mobile-step-card fade-up">
-      <div class="placeholder-img">
-        <div class="placeholder-inner"></div>
-        <div class="placeholder-mockup">
-          <div class="placeholder-mockup-bar"></div>
-          <div class="placeholder-mockup-lines">
-            <span style="width:80%"></span>
-            <span style="width:60%"></span>
-            <span style="width:40%"></span>
-          </div>
-        </div>
-      </div>
-      <div class="mobile-step-content">
-        <div class="mobile-step-top">
-          <div class="step-number">1</div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Business Profile</div>
-        </div>
-        <h3 class="mobile-step-title">Tell us about your business</h3>
-        <p class="mobile-step-body">Share your business details and goals. Pie builds a comprehensive profile that AI systems can understand and recommend.</p>
-      </div>
-    </div>
-
-    <!-- Step 2 -->
-    <div class="mobile-step-card fade-up delay-1">
-      <div class="placeholder-img">
-        <div class="placeholder-inner"></div>
-        <div class="placeholder-mockup">
-          <div class="placeholder-mockup-bar"></div>
-          <div class="placeholder-mockup-lines">
-            <span style="width:90%"></span>
-            <span style="width:70%"></span>
-            <span style="width:50%"></span>
-          </div>
-        </div>
-      </div>
-      <div class="mobile-step-content">
-        <div class="mobile-step-top">
-          <div class="step-number">2</div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Optimization</div>
-        </div>
-        <h3 class="mobile-step-title">We optimize for AI</h3>
-        <p class="mobile-step-body">Our engine structures and optimizes your information so AI models surface your business in relevant conversations.</p>
-      </div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="mobile-step-card fade-up delay-2">
-      <div class="placeholder-img">
-        <div class="placeholder-inner"></div>
-        <div class="placeholder-mockup">
-          <div class="placeholder-mockup-bar"></div>
-          <div class="placeholder-mockup-lines">
-            <span style="width:75%"></span>
-            <span style="width:55%"></span>
-            <span style="width:65%"></span>
-          </div>
-        </div>
-      </div>
-      <div class="mobile-step-content">
-        <div class="mobile-step-top">
-          <div class="step-number">3</div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Discovery</div>
-        </div>
-        <h3 class="mobile-step-title">Get discovered</h3>
-        <p class="mobile-step-body">When users ask AI for recommendations, your business shows up. Track your visibility and grow your AI presence.</p>
-      </div>
-    </div>
-
-    <!-- Mobile CTA -->
-    <div class="mobile-cta fade-up delay-3">
-      <a href="#" class="cta-btn">Try Pie Free</a>
-    </div>
-  </div>
 
   <!-- ── Desktop: Sticky Showcase Grid ── -->
   <div class="concept-b-wrapper">
@@ -639,42 +605,18 @@ body {
 
     <div class="concept-b-images">
       <div class="concept-b-image-block" data-step="0">
-        <div class="placeholder-img" style="height: 420px;">
-          <div class="placeholder-inner"></div>
-          <div class="placeholder-mockup">
-            <div class="placeholder-mockup-bar"></div>
-            <div class="placeholder-mockup-lines">
-              <span style="width:80%"></span>
-              <span style="width:60%"></span>
-              <span style="width:40%"></span>
-            </div>
-          </div>
+        <div class="step-img-wrap">
+          <img class="step-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop&crop=top" alt="Business profile dashboard">
         </div>
       </div>
       <div class="concept-b-image-block" data-step="1">
-        <div class="placeholder-img" style="height: 420px;">
-          <div class="placeholder-inner"></div>
-          <div class="placeholder-mockup">
-            <div class="placeholder-mockup-bar"></div>
-            <div class="placeholder-mockup-lines">
-              <span style="width:90%"></span>
-              <span style="width:70%"></span>
-              <span style="width:50%"></span>
-            </div>
-          </div>
+        <div class="step-img-wrap">
+          <img class="step-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=1000&fit=crop&crop=center" alt="AI optimization engine">
         </div>
       </div>
       <div class="concept-b-image-block" data-step="2">
-        <div class="placeholder-img" style="height: 420px;">
-          <div class="placeholder-inner"></div>
-          <div class="placeholder-mockup">
-            <div class="placeholder-mockup-bar"></div>
-            <div class="placeholder-mockup-lines">
-              <span style="width:75%"></span>
-              <span style="width:55%"></span>
-              <span style="width:65%"></span>
-            </div>
-          </div>
+        <div class="step-img-wrap">
+          <img class="step-img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=1000&fit=crop&crop=center" alt="AI discovery results">
         </div>
       </div>
     </div>
@@ -682,35 +624,118 @@ body {
 
 </section>
 
+<!-- ═══════════════════════════════════════════
+     MOBILE: Scroll-driven experience
+     ═══════════════════════════════════════════ -->
+<div class="m-scroll-section">
+
+  <!-- Progress bar -->
+  <div class="m-progress">
+    <div class="m-progress-fill" id="mProgressFill"></div>
+  </div>
+
+  <!-- Step indicators -->
+  <div class="m-step-indicators">
+    <div class="m-indicator active" data-step="0">
+      <div class="m-indicator-num">1</div>
+    </div>
+    <div class="m-indicator-line"></div>
+    <div class="m-indicator" data-step="1">
+      <div class="m-indicator-num">2</div>
+    </div>
+    <div class="m-indicator-line"></div>
+    <div class="m-indicator" data-step="2">
+      <div class="m-indicator-num">3</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="m-header">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      How It Works
+    </div>
+    <h2 class="section-header-title">How Pie gets your business in front of AI</h2>
+  </div>
+
+  <!-- Sticky image with crossfade -->
+  <div class="m-sticky-image">
+    <div class="m-image-frame">
+      <img class="step-img active" data-step="0" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop&crop=top" alt="Business profile dashboard">
+      <img class="step-img" data-step="1" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop&crop=center" alt="AI optimization engine">
+      <img class="step-img" data-step="2" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=800&fit=crop&crop=center" alt="AI discovery results">
+      <div class="m-image-badge" id="mImageBadge">
+        <div class="m-image-badge-dot"></div>
+        <span>Business Profile</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable content panels -->
+  <div class="m-content-panels">
+    <div class="m-panel" data-step="0">
+      <div class="m-panel-inner">
+        <div class="m-panel-top">
+          <div class="step-number">1</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Business Profile</div>
+        </div>
+        <h3 class="m-panel-title">Tell us about your business</h3>
+        <p class="m-panel-body">Share your business details and goals. Pie builds a comprehensive profile that AI systems can understand and recommend.</p>
+      </div>
+    </div>
+
+    <div class="m-panel" data-step="1">
+      <div class="m-panel-inner">
+        <div class="m-panel-top">
+          <div class="step-number">2</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Optimization</div>
+        </div>
+        <h3 class="m-panel-title">We optimize for AI</h3>
+        <p class="m-panel-body">Our engine structures and optimizes your information so AI models surface your business in relevant conversations.</p>
+      </div>
+    </div>
+
+    <div class="m-panel" data-step="2">
+      <div class="m-panel-inner">
+        <div class="m-panel-top">
+          <div class="step-number">3</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Discovery</div>
+        </div>
+        <h3 class="m-panel-title">Get discovered</h3>
+        <p class="m-panel-body">When users ask AI for recommendations, your business shows up. Track your visibility and grow your AI presence.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="m-cta">
+    <a href="#" class="cta-btn">Try Pie Free</a>
+  </div>
+</div>
+
 <script>
 // ── Intersection Observer for fade-in ──
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// ── Concept B: Scroll-based tab highlighting (desktop only) ──
-function initStickyShowcase() {
+// ── Desktop: Scroll-based tab highlighting ──
+function initDesktop() {
   const tabs = document.querySelectorAll('.concept-b-tab');
   const imageBlocks = document.querySelectorAll('.concept-b-image-block');
-
   if (!tabs.length || !imageBlocks.length) return;
 
   const imgObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const step = entry.target.dataset.step;
-        tabs.forEach(tab => {
-          tab.classList.toggle('active', tab.dataset.step === step);
-        });
+        tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.step === step));
         imageBlocks.forEach(block => {
-          const img = block.querySelector('.placeholder-img');
-          img.classList.toggle('dimmed', block.dataset.step !== step);
+          block.querySelector('.step-img-wrap').classList.toggle('dimmed', block.dataset.step !== step);
         });
       }
     });
@@ -718,17 +743,73 @@ function initStickyShowcase() {
 
   imageBlocks.forEach(block => imgObserver.observe(block));
 
-  // Click tabs to scroll to corresponding image
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const step = tab.dataset.step;
-      const target = document.querySelector(`.concept-b-image-block[data-step="${step}"]`);
+      const target = document.querySelector(`.concept-b-image-block[data-step="${tab.dataset.step}"]`);
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   });
 }
 
-initStickyShowcase();
+// ── Mobile: Scroll-driven image swap + progress ──
+function initMobile() {
+  const section = document.querySelector('.m-scroll-section');
+  if (!section || getComputedStyle(section).display === 'none') return;
+
+  const panels = document.querySelectorAll('.m-panel');
+  const images = document.querySelectorAll('.m-image-frame .step-img');
+  const indicators = document.querySelectorAll('.m-indicator');
+  const progressFill = document.getElementById('mProgressFill');
+  const badge = document.getElementById('mImageBadge');
+  const badgeLabels = ['Business Profile', 'AI Optimization', 'AI Discovery'];
+
+  let currentStep = 0;
+
+  const panelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const step = parseInt(entry.target.dataset.step);
+        if (step === currentStep) return;
+        currentStep = step;
+
+        // Crossfade images
+        images.forEach(img => img.classList.toggle('active', parseInt(img.dataset.step) === step));
+
+        // Update indicators
+        indicators.forEach(ind => {
+          const s = parseInt(ind.dataset.step);
+          ind.classList.remove('active', 'completed');
+          if (s === step) ind.classList.add('active');
+          else if (s < step) ind.classList.add('completed');
+        });
+
+        // Update badge
+        if (badge) badge.querySelector('span').textContent = badgeLabels[step];
+
+        // Update progress
+        const progress = ((step + 1) / panels.length) * 100;
+        if (progressFill) progressFill.style.width = progress + '%';
+      }
+    });
+  }, { threshold: 0.5, rootMargin: '-20% 0px -30% 0px' });
+
+  panels.forEach(panel => panelObserver.observe(panel));
+}
+
+// ── Init based on viewport ──
+initDesktop();
+initMobile();
+
+// Re-init on resize (crossing breakpoint)
+let lastWidth = window.innerWidth;
+window.addEventListener('resize', () => {
+  const crossed = (lastWidth > 768 && window.innerWidth <= 768) || (lastWidth <= 768 && window.innerWidth > 768);
+  lastWidth = window.innerWidth;
+  if (crossed) {
+    initDesktop();
+    initMobile();
+  }
+});
 </script>
 
 </body>
