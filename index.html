@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pie — How It Works Section Explorations</title>
+<title>Pie — How It Works</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
@@ -32,140 +32,6 @@ body {
   font-optical-sizing: auto;
 }
 
-/* ── Sticky Concept Switcher ── */
-.switcher {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(22,39,78,0.06);
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
-
-.switcher-left {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.switcher-logo {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--navy);
-  letter-spacing: -0.5px;
-}
-
-.switcher-logo span { color: var(--pink); }
-
-.switcher-divider {
-  width: 1px;
-  height: 24px;
-  background: var(--gray-card);
-}
-
-.switcher-label {
-  font-size: 13px;
-  color: var(--gray-text);
-  letter-spacing: -0.2px;
-}
-
-.switcher-nav {
-  display: flex;
-  gap: 4px;
-}
-
-.switcher-nav a {
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--gray-text);
-  padding: 8px 18px;
-  border-radius: 8px;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: -0.3px;
-  position: relative;
-}
-
-.switcher-nav a:hover {
-  color: var(--navy);
-  background: var(--gray-bg);
-}
-
-.switcher-nav a.active {
-  color: var(--white);
-  background: var(--navy);
-}
-
-/* ── Shared Section Styles ── */
-.concept-section {
-  min-height: 100vh;
-  padding: 112px 48px 80px;
-  position: relative;
-}
-
-.concept-section:nth-child(odd) { background: var(--white); }
-.concept-section:nth-child(even) { background: var(--gray-bg); }
-
-/* ── Annotation Box ── */
-.annotation {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 10px;
-  background: var(--navy);
-  color: rgba(255,255,255,0.85);
-  font-size: 13px;
-  line-height: 1.5;
-  padding: 14px 20px;
-  border-radius: 12px;
-  margin-bottom: 48px;
-  max-width: 680px;
-  letter-spacing: -0.1px;
-}
-
-.annotation-icon {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  margin-top: 1px;
-  color: rgba(255,255,255,0.6);
-}
-
-.annotation strong { color: var(--white); font-weight: 600; }
-
-/* ── Concept Label ── */
-.concept-label {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--pink);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-/* ── Section Header (shared pattern) ── */
-.section-header-title {
-  font-size: 47px;
-  font-weight: 500;
-  color: var(--navy);
-  letter-spacing: -1.41px;
-  line-height: 1.2;
-  margin-bottom: 8px;
-}
-
 /* ── Eyebrow ── */
 .eyebrow {
   display: inline-flex;
@@ -183,6 +49,16 @@ body {
   border-radius: 50%;
   background: var(--pink);
   opacity: 0.5;
+}
+
+/* ── Section Header ── */
+.section-header-title {
+  font-size: 47px;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: -1.41px;
+  line-height: 1.2;
+  margin-bottom: 8px;
 }
 
 /* ── CTA Button ── */
@@ -208,6 +84,22 @@ body {
   background: #d40046;
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(236,0,78,0.3);
+}
+
+/* ── Step Number ── */
+.step-number {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(22,39,78,0.06);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.3px;
+  flex-shrink: 0;
 }
 
 /* ── Placeholder Images ── */
@@ -236,7 +128,6 @@ body {
     radial-gradient(circle at 70% 60%, rgba(22,39,78,0.05) 0%, transparent 40%);
 }
 
-/* placeholder inner pattern */
 .placeholder-inner {
   position: absolute;
   inset: 0;
@@ -284,37 +175,6 @@ body {
 
 .placeholder-mockup-lines span:last-child { width: 60%; }
 
-/* ── Step Number ── */
-.step-number {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--navy);
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(22,39,78,0.06);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: -0.3px;
-}
-
-/* ── Body text shared ── */
-.step-body {
-  font-size: 18px;
-  color: var(--gray-text);
-  letter-spacing: -0.18px;
-  line-height: 1.3;
-}
-
-.step-title {
-  font-size: 36px;
-  font-weight: 500;
-  color: var(--navy);
-  letter-spacing: -1.08px;
-  line-height: 1.2;
-}
-
 /* ── Fade-in Animation ── */
 .fade-up {
   opacity: 0;
@@ -327,87 +187,18 @@ body {
   transform: translateY(0);
 }
 
-/* ══════════════════════════════════════════
-   CONCEPT A — Horizontal Steps
-   ══════════════════════════════════════════ */
-
-.concept-a-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 56px;
-  max-width: 1320px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.concept-a-header .section-header-title { max-width: 580px; }
-
-.concept-a-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1320px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* Timeline connector */
-.concept-a-steps::before {
-  content: '';
-  position: absolute;
-  top: 195px;
-  left: calc(33.333% - 12px);
-  right: calc(33.333% - 12px);
-  height: 2px;
-  background: linear-gradient(90deg, var(--pink), var(--navy));
-  opacity: 0.15;
-  z-index: 1;
-}
-
-.concept-a-card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.concept-a-card .placeholder-img {
-  width: 100%;
-  height: 300px;
-  position: relative;
-}
-
-.concept-a-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.concept-a-card .step-title {
-  font-size: 26px;
-  letter-spacing: -0.78px;
-}
-
-.concept-a-card .step-body {
-  font-size: 16px;
-}
-
-.concept-a-number {
-  font-size: 64px;
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1;
-  letter-spacing: -3px;
-  opacity: 0.08;
-  position: absolute;
-  top: -8px;
-  left: 20px;
-  z-index: 2;
-}
+.fade-up.delay-1 { transition-delay: 0.1s; }
+.fade-up.delay-2 { transition-delay: 0.2s; }
+.fade-up.delay-3 { transition-delay: 0.3s; }
 
 /* ══════════════════════════════════════════
-   CONCEPT B — Sticky Showcase
+   CONCEPT B — Sticky Showcase (Desktop)
    ══════════════════════════════════════════ */
+
+.how-it-works {
+  padding: 100px 48px 80px;
+  background: var(--white);
+}
 
 .concept-b-wrapper {
   max-width: 1320px;
@@ -420,7 +211,7 @@ body {
 
 .concept-b-sticky {
   position: sticky;
-  top: 112px;
+  top: 48px;
   align-self: start;
   display: flex;
   flex-direction: column;
@@ -487,6 +278,10 @@ body {
   color: var(--gray-text);
 }
 
+.concept-b-tab-eyebrow {
+  margin-bottom: 10px;
+}
+
 .concept-b-tab-body {
   font-size: 16px;
   color: var(--gray-text);
@@ -503,10 +298,6 @@ body {
   max-height: 100px;
   opacity: 1;
   margin-top: 12px;
-}
-
-.concept-b-tab-eyebrow {
-  margin-bottom: 10px;
 }
 
 .concept-b-images {
@@ -532,336 +323,199 @@ body {
 }
 
 /* ══════════════════════════════════════════
-   CONCEPT C — Compact Accordion
+   MOBILE CARD STACK — hidden on desktop,
+   shown on mobile instead of the grid
    ══════════════════════════════════════════ */
 
-.concept-c-wrapper {
-  max-width: 1080px;
-  margin: 0 auto;
+.mobile-header {
+  display: none;
 }
 
-.concept-c-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 48px;
-}
-
-.concept-c-header .section-header-title { max-width: 520px; }
-
-.concept-c-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.concept-c-card {
-  background: var(--white);
-  border-radius: var(--radius-card);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
-}
-
-.concept-section:nth-child(odd) .concept-c-card {
-  background: var(--gray-bg);
-}
-
-.concept-c-card:hover {
-  border-color: rgba(22,39,78,0.08);
-}
-
-.concept-c-card.expanded {
-  border-color: rgba(236,0,78,0.1);
-}
-
-.concept-c-card-collapsed {
-  padding: 28px 32px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.concept-c-card-collapsed .step-number {
-  transition: all 0.3s ease;
-}
-
-.concept-c-card.expanded .concept-c-card-collapsed .step-number {
-  background: var(--pink);
-  color: var(--white);
-}
-
-.concept-c-card-collapsed-text {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.concept-c-card-collapsed-title {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--navy);
-  letter-spacing: -0.66px;
-  transition: color 0.3s ease;
-}
-
-.concept-c-card:not(.expanded) .concept-c-card-collapsed-title {
-  color: var(--gray-text);
-}
-
-.concept-c-card-collapsed .eyebrow {
-  font-size: 13px;
-}
-
-.concept-c-card-chevron {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.35s ease;
-  color: var(--gray-text);
-}
-
-.concept-c-card.expanded .concept-c-card-chevron {
-  transform: rotate(180deg);
-  color: var(--pink);
-}
-
-.concept-c-card-expanded {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.concept-c-card.expanded .concept-c-card-expanded {
-  max-height: 450px;
-}
-
-.concept-c-card-expanded-inner {
-  padding: 0 32px 32px;
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.concept-c-card-expanded-inner .step-body {
-  font-size: 16px;
-  padding-top: 4px;
-}
-
-.concept-c-card-expanded-inner .placeholder-img {
-  height: 280px;
-  width: 100%;
+.mobile-steps {
+  display: none;
 }
 
 /* ══════════════════════════════════════════
-   CONCEPT D — Offset Mosaic
+   TABLET — 768px to 1024px
    ══════════════════════════════════════════ */
 
-.concept-d-wrapper {
-  max-width: 1320px;
-  margin: 0 auto;
-}
+@media (max-width: 1024px) {
+  .how-it-works {
+    padding: 80px 32px 64px;
+  }
 
-.concept-d-header {
-  text-align: center;
-  margin-bottom: 72px;
-}
+  .concept-b-wrapper {
+    grid-template-columns: 340px 1fr;
+    gap: 40px;
+  }
 
-.concept-d-header .section-header-title {
-  margin-bottom: 20px;
-}
+  .concept-b-sticky {
+    gap: 32px;
+  }
 
-.concept-d-blocks {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
+  .section-header-title {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
 
-.concept-d-block {
-  position: relative;
-  display: grid;
-  align-items: center;
-  min-height: 380px;
-}
+  .concept-b-tab-title {
+    font-size: 20px;
+  }
 
-/* Block 1: image 65% right, text overlaps from left */
-.concept-d-block-1 {
-  grid-template-columns: 1fr;
-}
-
-.concept-d-block-1 .placeholder-img {
-  width: 62%;
-  height: 380px;
-  margin-left: auto;
-}
-
-.concept-d-block-1 .concept-d-text-card {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44%;
-  z-index: 2;
-}
-
-/* Block 2: image 55% left, text overlaps from right */
-.concept-d-block-2 {
-  grid-template-columns: 1fr;
-}
-
-.concept-d-block-2 .placeholder-img {
-  width: 55%;
-  height: 380px;
-  margin-right: auto;
-}
-
-.concept-d-block-2 .concept-d-text-card {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48%;
-  z-index: 2;
-}
-
-/* Block 3: full-width image, text card centered on top */
-.concept-d-block-3 {
-  grid-template-columns: 1fr;
-}
-
-.concept-d-block-3 .placeholder-img {
-  width: 100%;
-  height: 360px;
-}
-
-.concept-d-block-3 .concept-d-text-card {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 480px;
-  z-index: 2;
-  text-align: center;
-}
-
-.concept-d-text-card {
-  background: var(--white);
-  border-radius: var(--radius-card);
-  padding: 36px 32px;
-  box-shadow: 0 8px 40px rgba(22,39,78,0.08), 0 1px 3px rgba(22,39,78,0.04);
-  position: relative;
-  overflow: hidden;
-}
-
-.concept-d-big-number {
-  position: absolute;
-  font-size: 140px;
-  font-weight: 700;
-  color: var(--navy);
-  opacity: 0.04;
-  line-height: 1;
-  letter-spacing: -8px;
-  top: -20px;
-  right: -10px;
-  user-select: none;
-}
-
-.concept-d-block-3 .concept-d-big-number {
-  right: auto;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.concept-d-text-card .eyebrow { margin-bottom: 12px; }
-
-.concept-d-text-card .step-title {
-  font-size: 28px;
-  letter-spacing: -0.84px;
-  margin-bottom: 10px;
-}
-
-.concept-d-text-card .step-body {
-  font-size: 16px;
-}
-
-/* ── Placeholder Variations for D ── */
-.placeholder-img.variant-warm::before {
-  background: linear-gradient(135deg, rgba(236,0,78,0.07) 0%, rgba(255,200,100,0.05) 100%);
-}
-
-.placeholder-img.variant-cool::before {
-  background: linear-gradient(135deg, rgba(22,39,78,0.07) 0%, rgba(100,180,255,0.05) 100%);
-}
-
-.placeholder-img.variant-mixed::before {
-  background: linear-gradient(135deg, rgba(236,0,78,0.05) 0%, rgba(22,39,78,0.06) 100%);
+  .concept-b-image-block .placeholder-img {
+    height: 360px;
+  }
 }
 
 /* ══════════════════════════════════════════
-   Stagger delays for fade-up
+   MOBILE — below 768px
    ══════════════════════════════════════════ */
-.fade-up.delay-1 { transition-delay: 0.1s; }
-.fade-up.delay-2 { transition-delay: 0.2s; }
-.fade-up.delay-3 { transition-delay: 0.3s; }
-.fade-up.delay-4 { transition-delay: 0.4s; }
+
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 64px 20px 56px;
+  }
+
+  /* Hide desktop layout */
+  .concept-b-wrapper {
+    display: none;
+  }
+
+  /* Show mobile layout */
+  .mobile-header {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+
+  .mobile-header .section-header-title {
+    font-size: 32px;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+
+  .mobile-header .eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .mobile-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .mobile-step-card {
+    background: var(--gray-bg);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+
+  .mobile-step-card .placeholder-img {
+    width: 100%;
+    height: 220px;
+    border-radius: 0;
+  }
+
+  .mobile-step-content {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-step-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mobile-step-top .eyebrow {
+    font-size: 13px;
+  }
+
+  .mobile-step-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: -0.66px;
+    line-height: 1.25;
+  }
+
+  .mobile-step-body {
+    font-size: 15px;
+    color: var(--gray-text);
+    letter-spacing: -0.15px;
+    line-height: 1.5;
+  }
+
+  .mobile-cta {
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .mobile-cta .cta-btn {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+}
 
 /* ══════════════════════════════════════════
-   Separator between sections
+   SMALL MOBILE — below 400px
    ══════════════════════════════════════════ */
-.section-separator {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gray-card), transparent);
-  margin: 0 48px;
+
+@media (max-width: 400px) {
+  .how-it-works {
+    padding: 56px 16px 48px;
+  }
+
+  .mobile-header .section-header-title {
+    font-size: 28px;
+    letter-spacing: -0.7px;
+  }
+
+  .mobile-step-card .placeholder-img {
+    height: 190px;
+  }
+
+  .mobile-step-content {
+    padding: 20px 20px 24px;
+  }
+
+  .mobile-step-title {
+    font-size: 20px;
+  }
+
+  .mobile-step-body {
+    font-size: 14px;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- ── Sticky Switcher ── -->
-<nav class="switcher">
-  <div class="switcher-left">
-    <div class="switcher-logo">Pie<span>.</span></div>
-    <div class="switcher-divider"></div>
-    <div class="switcher-label">How It Works — Design Explorations</div>
-  </div>
-  <div class="switcher-nav">
-    <a href="#concept-a" class="active" data-concept="a">A · Horizontal</a>
-    <a href="#concept-b" data-concept="b">B · Sticky</a>
-    <a href="#concept-c" data-concept="c">C · Accordion</a>
-    <a href="#concept-d" data-concept="d">D · Mosaic</a>
-  </div>
-</nav>
-
 <!-- ═══════════════════════════════════════════
-     CONCEPT A — Horizontal Steps
+     How It Works — Sticky Showcase
      ═══════════════════════════════════════════ -->
-<section id="concept-a" class="concept-section">
-  <div class="concept-label fade-up">Concept A</div>
-  <div class="annotation fade-up delay-1">
-    <div class="annotation-icon">i</div>
-    <div><strong>Horizontal Steps</strong> — All 3 steps visible in a single viewport. No excessive scrolling. The timeline connector creates a clear visual flow. Step numbers, images, and copy are tightly grouped to reduce cognitive load.</div>
-  </div>
+<section class="how-it-works">
 
-  <div class="concept-a-header fade-up delay-2">
-    <div>
-      <div class="eyebrow" style="margin-bottom: 16px;">
-        <span class="eyebrow-dot"></span>
-        How It Works
-      </div>
-      <h2 class="section-header-title">How Pie gets your business in front of AI</h2>
+  <!-- ── Mobile Header (hidden on desktop) ── -->
+  <div class="mobile-header">
+    <div class="eyebrow fade-up">
+      <span class="eyebrow-dot"></span>
+      How It Works
     </div>
-    <a href="#" class="cta-btn">Try Pie Free</a>
+    <h2 class="section-header-title fade-up delay-1">How Pie gets your business in front of AI</h2>
   </div>
 
-  <div class="concept-a-steps">
+  <!-- ── Mobile Step Cards (hidden on desktop) ── -->
+  <div class="mobile-steps">
     <!-- Step 1 -->
-    <div class="concept-a-card fade-up delay-2">
-      <div class="placeholder-img" style="height: 300px; position: relative;">
+    <div class="mobile-step-card fade-up">
+      <div class="placeholder-img">
         <div class="placeholder-inner"></div>
         <div class="placeholder-mockup">
           <div class="placeholder-mockup-bar"></div>
@@ -871,21 +525,20 @@ body {
             <span style="width:40%"></span>
           </div>
         </div>
-        <div class="concept-a-number">01</div>
       </div>
-      <div>
-        <div class="concept-a-card-header">
+      <div class="mobile-step-content">
+        <div class="mobile-step-top">
           <div class="step-number">1</div>
-          <div class="eyebrow" style="font-size: 13px;"><span class="eyebrow-dot"></span> Business Profile</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Business Profile</div>
         </div>
+        <h3 class="mobile-step-title">Tell us about your business</h3>
+        <p class="mobile-step-body">Share your business details and goals. Pie builds a comprehensive profile that AI systems can understand and recommend.</p>
       </div>
-      <h3 class="step-title" style="font-size: 26px; letter-spacing: -0.78px;">Tell us about your business</h3>
-      <p class="step-body" style="font-size: 16px;">Share your business details and goals. Pie builds a comprehensive profile that AI systems can understand and recommend.</p>
     </div>
 
     <!-- Step 2 -->
-    <div class="concept-a-card fade-up delay-3">
-      <div class="placeholder-img" style="height: 300px; position: relative;">
+    <div class="mobile-step-card fade-up delay-1">
+      <div class="placeholder-img">
         <div class="placeholder-inner"></div>
         <div class="placeholder-mockup">
           <div class="placeholder-mockup-bar"></div>
@@ -895,21 +548,20 @@ body {
             <span style="width:50%"></span>
           </div>
         </div>
-        <div class="concept-a-number">02</div>
       </div>
-      <div>
-        <div class="concept-a-card-header">
+      <div class="mobile-step-content">
+        <div class="mobile-step-top">
           <div class="step-number">2</div>
-          <div class="eyebrow" style="font-size: 13px;"><span class="eyebrow-dot"></span> AI Optimization</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Optimization</div>
         </div>
+        <h3 class="mobile-step-title">We optimize for AI</h3>
+        <p class="mobile-step-body">Our engine structures and optimizes your information so AI models surface your business in relevant conversations.</p>
       </div>
-      <h3 class="step-title" style="font-size: 26px; letter-spacing: -0.78px;">We optimize for AI</h3>
-      <p class="step-body" style="font-size: 16px;">Our engine structures and optimizes your information so AI models surface your business in relevant conversations.</p>
     </div>
 
     <!-- Step 3 -->
-    <div class="concept-a-card fade-up delay-4">
-      <div class="placeholder-img" style="height: 300px; position: relative;">
+    <div class="mobile-step-card fade-up delay-2">
+      <div class="placeholder-img">
         <div class="placeholder-inner"></div>
         <div class="placeholder-mockup">
           <div class="placeholder-mockup-bar"></div>
@@ -919,34 +571,26 @@ body {
             <span style="width:65%"></span>
           </div>
         </div>
-        <div class="concept-a-number">03</div>
       </div>
-      <div>
-        <div class="concept-a-card-header">
+      <div class="mobile-step-content">
+        <div class="mobile-step-top">
           <div class="step-number">3</div>
-          <div class="eyebrow" style="font-size: 13px;"><span class="eyebrow-dot"></span> AI Discovery</div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Discovery</div>
         </div>
+        <h3 class="mobile-step-title">Get discovered</h3>
+        <p class="mobile-step-body">When users ask AI for recommendations, your business shows up. Track your visibility and grow your AI presence.</p>
       </div>
-      <h3 class="step-title" style="font-size: 26px; letter-spacing: -0.78px;">Get discovered</h3>
-      <p class="step-body" style="font-size: 16px;">When users ask AI for recommendations, your business shows up. Track your visibility and grow your AI presence.</p>
+    </div>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta fade-up delay-3">
+      <a href="#" class="cta-btn">Try Pie Free</a>
     </div>
   </div>
-</section>
 
-<div class="section-separator"></div>
-
-<!-- ═══════════════════════════════════════════
-     CONCEPT B — Sticky Showcase
-     ═══════════════════════════════════════════ -->
-<section id="concept-b" class="concept-section" style="padding-bottom: 0;">
-  <div class="concept-label fade-up">Concept B</div>
-  <div class="annotation fade-up delay-1">
-    <div class="annotation-icon">i</div>
-    <div><strong>Sticky Showcase</strong> — Left column stays fixed with interactive tabs. Right column scrolls through images. Text stays grouped with its step tab — no jumping between headline, image, and body copy. Much more compact scrolling.</div>
-  </div>
-
+  <!-- ── Desktop: Sticky Showcase Grid ── -->
   <div class="concept-b-wrapper">
-    <div class="concept-b-sticky fade-up delay-2">
+    <div class="concept-b-sticky fade-up delay-1">
       <div>
         <div class="eyebrow" style="margin-bottom: 16px;">
           <span class="eyebrow-dot"></span>
@@ -1035,223 +679,8 @@ body {
       </div>
     </div>
   </div>
+
 </section>
-
-<div class="section-separator"></div>
-
-<!-- ═══════════════════════════════════════════
-     CONCEPT C — Compact Accordion
-     ═══════════════════════════════════════════ -->
-<section id="concept-c" class="concept-section">
-  <div class="concept-label fade-up">Concept C</div>
-  <div class="annotation fade-up delay-1">
-    <div class="annotation-icon">i</div>
-    <div><strong>Compact Accordion</strong> — Dramatically reduces scroll distance. Each step is a clickable card that expands to reveal image + copy. Collapsed state shows just number + title. Users engage one step at a time with zero wasted space.</div>
-  </div>
-
-  <div class="concept-c-wrapper">
-    <div class="concept-c-header fade-up delay-2">
-      <div>
-        <div class="eyebrow" style="margin-bottom: 16px;">
-          <span class="eyebrow-dot"></span>
-          How It Works
-        </div>
-        <h2 class="section-header-title">How Pie gets your business in front of AI</h2>
-      </div>
-      <a href="#" class="cta-btn">Try Pie Free</a>
-    </div>
-
-    <div class="concept-c-cards">
-      <!-- Card 1 -->
-      <div class="concept-c-card expanded fade-up delay-2" data-step="0">
-        <div class="concept-c-card-collapsed">
-          <div class="step-number">1</div>
-          <div class="concept-c-card-collapsed-text">
-            <div class="concept-c-card-collapsed-title">Tell us about your business</div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> Business Profile</div>
-          </div>
-          <div class="concept-c-card-chevron">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </div>
-        <div class="concept-c-card-expanded">
-          <div class="concept-c-card-expanded-inner">
-            <div>
-              <p class="step-body">Share your business details and goals. Pie builds a comprehensive profile that AI systems can understand and recommend.</p>
-            </div>
-            <div class="placeholder-img" style="height: 280px;">
-              <div class="placeholder-inner"></div>
-              <div class="placeholder-mockup">
-                <div class="placeholder-mockup-bar"></div>
-                <div class="placeholder-mockup-lines">
-                  <span style="width:80%"></span>
-                  <span style="width:60%"></span>
-                  <span style="width:40%"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="concept-c-card fade-up delay-3" data-step="1">
-        <div class="concept-c-card-collapsed">
-          <div class="step-number">2</div>
-          <div class="concept-c-card-collapsed-text">
-            <div class="concept-c-card-collapsed-title">We optimize for AI</div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> AI Optimization</div>
-          </div>
-          <div class="concept-c-card-chevron">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </div>
-        <div class="concept-c-card-expanded">
-          <div class="concept-c-card-expanded-inner">
-            <div>
-              <p class="step-body">Our engine structures and optimizes your information so AI models surface your business in relevant conversations.</p>
-            </div>
-            <div class="placeholder-img" style="height: 280px;">
-              <div class="placeholder-inner"></div>
-              <div class="placeholder-mockup">
-                <div class="placeholder-mockup-bar"></div>
-                <div class="placeholder-mockup-lines">
-                  <span style="width:90%"></span>
-                  <span style="width:70%"></span>
-                  <span style="width:50%"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="concept-c-card fade-up delay-4" data-step="2">
-        <div class="concept-c-card-collapsed">
-          <div class="step-number">3</div>
-          <div class="concept-c-card-collapsed-text">
-            <div class="concept-c-card-collapsed-title">Get discovered</div>
-            <div class="eyebrow"><span class="eyebrow-dot"></span> AI Discovery</div>
-          </div>
-          <div class="concept-c-card-chevron">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-        </div>
-        <div class="concept-c-card-expanded">
-          <div class="concept-c-card-expanded-inner">
-            <div>
-              <p class="step-body">When users ask AI for recommendations, your business shows up. Track your visibility and grow your AI presence.</p>
-            </div>
-            <div class="placeholder-img" style="height: 280px;">
-              <div class="placeholder-inner"></div>
-              <div class="placeholder-mockup">
-                <div class="placeholder-mockup-bar"></div>
-                <div class="placeholder-mockup-lines">
-                  <span style="width:75%"></span>
-                  <span style="width:55%"></span>
-                  <span style="width:65%"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="section-separator"></div>
-
-<!-- ═══════════════════════════════════════════
-     CONCEPT D — Offset Mosaic
-     ═══════════════════════════════════════════ -->
-<section id="concept-d" class="concept-section">
-  <div class="concept-label fade-up">Concept D</div>
-  <div class="annotation fade-up delay-1">
-    <div class="annotation-icon">i</div>
-    <div><strong>Offset Mosaic</strong> — Completely breaks the 50/50 grid. Each step has a unique asymmetric layout with overlapping text cards on images. Large decorative numbers add rhythm. Dynamic visual flow with much less wasted whitespace.</div>
-  </div>
-
-  <div class="concept-d-wrapper">
-    <div class="concept-d-header fade-up delay-2">
-      <div class="eyebrow" style="margin-bottom: 16px; justify-content: center;">
-        <span class="eyebrow-dot"></span>
-        How It Works
-      </div>
-      <h2 class="section-header-title">How Pie gets your business in front of AI</h2>
-      <a href="#" class="cta-btn" style="margin-top: 16px;">Try Pie Free</a>
-    </div>
-
-    <div class="concept-d-blocks">
-      <!-- Block 1 -->
-      <div class="concept-d-block concept-d-block-1 fade-up delay-2">
-        <div class="placeholder-img variant-warm" style="height: 380px; width: 62%; margin-left: auto;">
-          <div class="placeholder-inner"></div>
-          <div class="placeholder-mockup">
-            <div class="placeholder-mockup-bar"></div>
-            <div class="placeholder-mockup-lines">
-              <span style="width:80%"></span>
-              <span style="width:60%"></span>
-              <span style="width:40%"></span>
-            </div>
-          </div>
-        </div>
-        <div class="concept-d-text-card">
-          <div class="concept-d-big-number">01</div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Business Profile</div>
-          <h3 class="step-title">Tell us about your business</h3>
-          <p class="step-body">Share your business details and goals. Pie builds a comprehensive profile that AI systems can understand and recommend.</p>
-        </div>
-      </div>
-
-      <!-- Block 2 -->
-      <div class="concept-d-block concept-d-block-2 fade-up delay-3">
-        <div class="placeholder-img variant-cool" style="height: 380px; width: 55%; margin-right: auto;">
-          <div class="placeholder-inner"></div>
-          <div class="placeholder-mockup">
-            <div class="placeholder-mockup-bar"></div>
-            <div class="placeholder-mockup-lines">
-              <span style="width:90%"></span>
-              <span style="width:70%"></span>
-              <span style="width:50%"></span>
-            </div>
-          </div>
-        </div>
-        <div class="concept-d-text-card">
-          <div class="concept-d-big-number">02</div>
-          <div class="eyebrow"><span class="eyebrow-dot"></span> AI Optimization</div>
-          <h3 class="step-title">We optimize for AI</h3>
-          <p class="step-body">Our engine structures and optimizes your information so AI models surface your business in relevant conversations.</p>
-        </div>
-      </div>
-
-      <!-- Block 3 -->
-      <div class="concept-d-block concept-d-block-3 fade-up delay-4">
-        <div class="placeholder-img variant-mixed" style="height: 360px; width: 100%;">
-          <div class="placeholder-inner"></div>
-          <div class="placeholder-mockup">
-            <div class="placeholder-mockup-bar"></div>
-            <div class="placeholder-mockup-lines">
-              <span style="width:75%"></span>
-              <span style="width:55%"></span>
-              <span style="width:65%"></span>
-            </div>
-          </div>
-        </div>
-        <div class="concept-d-text-card">
-          <div class="concept-d-big-number">03</div>
-          <div class="eyebrow" style="justify-content: center;"><span class="eyebrow-dot"></span> AI Discovery</div>
-          <h3 class="step-title">Get discovered</h3>
-          <p class="step-body">When users ask AI for recommendations, your business shows up. Track your visibility and grow your AI presence.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Spacer at bottom -->
-<div style="height: 120px;"></div>
 
 <script>
 // ── Intersection Observer for fade-in ──
@@ -1265,27 +694,12 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// ── Switcher active state on scroll ──
-const sections = document.querySelectorAll('.concept-section');
-const navLinks = document.querySelectorAll('.switcher-nav a');
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      });
-    }
-  });
-}, { threshold: 0.3 });
-
-sections.forEach(s => sectionObserver.observe(s));
-
-// ── Concept B: Scroll-based tab highlighting ──
-function initConceptB() {
+// ── Concept B: Scroll-based tab highlighting (desktop only) ──
+function initStickyShowcase() {
   const tabs = document.querySelectorAll('.concept-b-tab');
   const imageBlocks = document.querySelectorAll('.concept-b-image-block');
+
+  if (!tabs.length || !imageBlocks.length) return;
 
   const imgObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1294,7 +708,6 @@ function initConceptB() {
         tabs.forEach(tab => {
           tab.classList.toggle('active', tab.dataset.step === step);
         });
-        // Dim non-active images
         imageBlocks.forEach(block => {
           const img = block.querySelector('.placeholder-img');
           img.classList.toggle('dimmed', block.dataset.step !== step);
@@ -1305,7 +718,7 @@ function initConceptB() {
 
   imageBlocks.forEach(block => imgObserver.observe(block));
 
-  // Click tabs to scroll
+  // Click tabs to scroll to corresponding image
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const step = tab.dataset.step;
@@ -1315,35 +728,7 @@ function initConceptB() {
   });
 }
 
-// ── Concept C: Accordion behavior ──
-function initConceptC() {
-  const cards = document.querySelectorAll('.concept-c-card');
-
-  cards.forEach(card => {
-    card.querySelector('.concept-c-card-collapsed').addEventListener('click', () => {
-      const wasExpanded = card.classList.contains('expanded');
-      cards.forEach(c => c.classList.remove('expanded'));
-      if (!wasExpanded) {
-        card.classList.add('expanded');
-      }
-    });
-  });
-}
-
-// ── Smooth scroll for nav links ──
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    const offset = 72;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-  });
-});
-
-// Init
-initConceptB();
-initConceptC();
+initStickyShowcase();
 </script>
 
 </body>
